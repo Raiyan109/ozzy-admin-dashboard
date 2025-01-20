@@ -5,8 +5,7 @@ import { createElement, useEffect, useState } from "react";
 import { routeLinkGenerators } from "../../utils/routeLinkGenerators";
 import { dashboardItems } from "../../constants/router.constants";
 import Swal from "sweetalert2";
-import { FiLogOut } from "react-icons/fi";
-import { MdOutlineArrowRight } from "react-icons/md";
+import { IoLogOutOutline } from "react-icons/io5";
 import { cn } from "../../lib/utils";
 
 const Sidebar = () => {
@@ -36,11 +35,11 @@ const Sidebar = () => {
     // console.log(location.pathname.includes("earnings"));
   }, [location.pathname]);
   return (
-    <div className="fixed top-0 left-0 w-[290px] min-h-screen h-full pr-0 bg-white">
+    <div className="fixed top-0 left-0 w-[290px] min-h-screen h-full pr-0 bg-[#345C8C]">
       <div className="h-full flex flex-col justify-between  pt-[50px] border drop-shadow">
         <div className="space-y[24px">
           <div className="px-[38px]">
-            <img className="w-[60%] mx-auto" src={logo} alt="" />
+            <img className="w-full mx-auto" src={logo} alt="" />
           </div>
           <ul className="mt-10 max-h-[650px] overflow-y-auto space-y-1 xl:space-y-2 px-4">
             {routeLinkGenerators(dashboardItems).map(
@@ -121,10 +120,10 @@ const Sidebar = () => {
                         to={path}
                         className={({ isActive }) =>
                           isActive
-                            ? "bg-black text-white" +
-                            " w-full px-4 py-3 flex items-center justify-start gap-3 text-md transition-all rounded-full"
-                            : " hover:text-white  hover:bg-black" +
-                            " w-full px-4 py-3 flex items-center justify-start gap-3 text-md transition-all rounded-full"
+                            ? "bg-[#EBF8FF] text-[#345C8C]" +
+                            " w-full px-4 py-3 flex items-center justify-start gap-3 text-md transition-all rounded-xl"
+                            : " hover:text-[#345C8C]  hover:bg-[#EBF8FF] text-[#EBF8FF]" +
+                            " w-full px-4 py-3 flex items-center justify-start gap-3 text-md transition-all rounded-xl"
                         }
                       >
                         <div>{createElement(icon, { size: "18" })}</div>
@@ -138,10 +137,10 @@ const Sidebar = () => {
         <div className="p-4 mt-auto  text-center">
           <button
             onClick={handleLogOut}
-            className=" w-full bg-red text-black  font-semibold px-12 py-3 flex items-center justify-center gap-3 text-md outline-none rounded-full"
+            className=" w-full font-semibold px-12 py-3 flex items-center justify-center gap-3 text-md outline-none rounded-full text-2xl"
           >
-            <img className="" src={logout} alt="" />
-            <span className="text-white font-light">Logout</span>
+            <IoLogOutOutline className="text-[#D84040]" />
+            <span className="text-[#D84040] font-light">Logout</span>
           </button>
         </div>
       </div>

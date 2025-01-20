@@ -9,40 +9,25 @@ import TermsConditions from "../pages/Settings/TermsConditions";
 import EditTermsConditions from "../pages/Settings/EditTermsConditions";
 import PrivacyPolicy from "../pages/Settings/PrivacyPolicy";
 import EditPrivacyPolicy from "../pages/Settings/EditPrivacyPolicy";
-import EditAboutUs from "../pages/Settings/EditAboutUs";
-import AboutUs from "../pages/Settings/AboutUs";
-import Notifications from "../pages/Main/Notifications/Notifications";
-import { FaUser } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa6";
 import {
-  MdOutlineAdminPanelSettings,
   MdOutlineSecurityUpdateWarning,
 } from "react-icons/md";
 import HostDetails from "../pages/Main/Host/HostDetails";
-import { LuWallet } from "react-icons/lu";
 import { FaServicestack } from "react-icons/fa6";
 import { BiMessageSquareDetail } from "react-icons/bi";
 import { PiHandWithdrawBold } from "react-icons/pi";
-import StudioPost from "../pages/Main/ApproveRequest/StudioPost";
-import TrainerPost from "../pages/Main/ApproveRequest/TrainerPost";
-import Review from "../pages/Main/Users/Review";
-import StudioList from "../pages/Main/StudioList/StudioList";
-import TrainerList from "../pages/Main/TrainerList/TrainerList";
 import Earnings from "../pages/Main/Earnings/Earnings";
-import Driver from "../pages/Main/Driver/Driver";
-import DriverRequest from "../pages/Main/DriverRequest/DriverRequest";
 import Setting from "../pages/Main/Setting/Setting";
-import Support from "../pages/Main/Support/Support";
-import earningImg from "../assets/images/earnings.png";
 import ChangePassword from "../pages/Main/Setting/Change-password/ChangePassword";
 import ForgotPassword from "../pages/Main/Setting/Change-password/ForgotPassword";
 import VerifyEmail from "../pages/Main/Setting/Change-password/VerifyEmail";
 import Trust from "../pages/Settings/Trust";
 import EditTrust from "../pages/Settings/EditTrust";
-import { TbCash } from "react-icons/tb";
-import { PiLaptopThin } from "react-icons/pi";
-import { GrUserManager } from "react-icons/gr";
-import { BiSupport } from "react-icons/bi";
+import { TbCoin } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
+import { LuCrown } from "react-icons/lu";
+import Subscription from "../pages/Main/Subscription/Subscription";
 
 export const dashboardItems = [
   {
@@ -52,9 +37,15 @@ export const dashboardItems = [
     element: <DashboardHome />,
   },
   {
+    name: "Earning",
+    path: "earnings",
+    icon: TbCoin,
+    element: <Earnings />,
+  },
+  {
     name: "User",
     path: "users",
-    icon: FaUser,
+    icon: FaRegUser,
     element: <Guests />,
   },
   // {
@@ -85,32 +76,27 @@ export const dashboardItems = [
   //   element: <Review></Review>
   // },
 
+
+  // {
+  //   name: "Driver",
+  //   path: "driver",
+  //   icon: GrUserManager,
+  //   element: <Driver />,
+  // },
+  // {
+  //   name: "Driver Request",
+  //   path: "driver-request",
+  //   icon: PiLaptopThin,
+  //   element: <DriverRequest />,
+  // },
   {
-    name: "Earning",
-    path: "earnings",
-    icon: TbCash,
-    element: <Earnings />,
+    name: "Subscription",
+    path: "subscription",
+    icon: LuCrown,
+    element: <Subscription />,
   },
   {
-    name: "Driver",
-    path: "driver",
-    icon: GrUserManager,
-    element: <Driver />,
-  },
-  {
-    name: "Driver Request",
-    path: "driver-request",
-    icon: PiLaptopThin,
-    element: <DriverRequest />,
-  },
-  {
-    name: "Support",
-    path: "support",
-    icon: BiSupport,
-    element: <Support />,
-  },
-  {
-    name: "Setting",
+    name: "Settings",
     path: "settings",
     icon: IoSettingsOutline,
     element: <Setting />,
