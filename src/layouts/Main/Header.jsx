@@ -41,21 +41,23 @@ const Header = () => {
 
     <div className="w-full h-[88px] flex justify-between items-center rounded-sm py-[16px] px-[32px] shadow-lg bg-[#345C8C]">
       <div className="text-start space-y-0.5">
-        <p className="text-sm md:text-xl font-light">
+        {/* <p className="text-sm md:text-xl font-light">
           {"Welcome, Jane Cooper"}
         </p>
-        <p className="text-sm md:text-xl">{"Have a nice day!"}</p>
+        <p className="text-sm md:text-xl">{"Have a nice day!"}</p> */}
       </div>
       <div className="flex gap-x-[41px]">
         <div
           onClick={(e) => navigate("/notifications")}
           className="relative flex items-center "
         >
-          <Badge style={{ backgroundColor: "#000000", width: '20px', height: '20px', objectFit: 'contain' }} count={1}>
-            <TbBellRinging
-              style={{ cursor: "pointer" }}
-              className={` w-6 h-6 rounded-full shadow-sm  font-bold transition-all`}
-            />
+          <Badge style={{ backgroundColor: "#37B5FF", width: '20px', height: '20px', objectFit: 'contain' }} count={1}>
+            <div className="bg-white p-2 rounded-full">
+              <TbBellRinging
+                style={{ cursor: "pointer" }}
+                className={` w-6 h-6 rounded-full shadow-sm  font-bold transition-all`}
+              />
+            </div>
           </Badge>
         </div>
         <div className="flex items-center">
