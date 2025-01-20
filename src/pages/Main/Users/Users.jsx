@@ -17,50 +17,55 @@ const Users = () => {
 
   const columns = [
     {
-          title: "#SL",
-          dataIndex: "transIs",
-          key: "transIs",
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "Name",
-          dataIndex: "name",
-          key: "name",
-        },
-        {
-          title: "Email",
-          dataIndex: "Email",
-          key: "Email",
-        },
-        {
-          title: "Phone Number",
-          key: "Phone",
-          dataIndex: "Phone",
-        },
-        {
-          title: "Action",
-          key: "Review",
-          aligen: 'center',
-          render: (_, data) => (
-            <div className="  items-center justify-around textcenter flex " >
-              {/* Review Icon */}
-              <img src={exlamIcon} alt="" className="btn  px-3 py-1 text-sm rounded-full cursor-pointer" onClick={() => showModal(data)} />
-              {/* <Link to={'/reviews'} className="btn bg-black text-white px-3 py-1 text-sm rounded-full">
-               
-                View
-              </Link> */}
-            </div>
-          ),
-        },
+      title: "#Tr.ID",
+      dataIndex: "transIs",
+      key: "transIs",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "User Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Subscription",
+      dataIndex: "subscription",
+      key: "subscription",
+    },
+    {
+      title: "Amount",
+      key: "amount",
+      dataIndex: "amount",
+    },
+    {
+      title: "Date",
+      key: "date",
+      dataIndex: "date",
+    },
+    {
+      title: "Action",
+      key: "Review",
+      aligen: 'center',
+      render: (_, data) => (
+        <div className="  items-center justify-around textcenter flex">
+          {/* Review Icon */}
+          <img src={exlamIcon} alt="" className="btn  px-3 py-1 text-sm rounded-full  cursor-pointer" onClick={() => showModal(data)} />
+          {/* <Link to={'/reviews'} className="btn bg-black text-white px-3 py-1 text-sm rounded-full">
+             
+              View
+            </Link> */}
+        </div>
+      ),
+    },
   ];
 
   const data = [];
-  for (let index = 0; index < 20; index++) {
+  for (let index = 0; index < 6; index++) {
     data.push({
       transIs: `${index + 1}`,
       name: "Henry",
-      Email: "sharif@gmail.com",
-      Phone: "+12746478994",
+      subscription: "Standard",
+      amount: "9.99",
       Review: "See Review",
       date: "16 Apr 2024",
       _id: index,
@@ -69,7 +74,18 @@ const Users = () => {
 
   return (
     <div className="rounded-lg border py-4 border-black mt-8 recent-users-table">
-      <h3 className="text-2xl text-black mb-4 pl-2">Recent Users</h3>
+      <div className="flex justify-between px-2">
+        <h3 className="text-2xl text-black mb-4 pl-2">Users List</h3>
+        <div className="flex items-center gap-4 mb-6">
+          <DatePicker placeholder="Date" className="w-48 border-[#345C8C]" />
+          <Input placeholder="Subscription" className="w-48 placeholder:text-[#345C8C]" />
+          <Input placeholder="User Name" className="w-48 placeholder:text-[#345C8C]" />
+          {/* <Button style={{ border: 'none', backgroundColor: '#EBF8FF', color: '#174C6B', borderRadius: '8px' }}>
+                   <IoSearch />
+                 </Button> */}
+          <button style={{ border: 'none', backgroundColor: '#85cff7', color: '#174C6B', borderRadius: '50%', padding: '6px' }}><IoSearch size={20} /></button>
+        </div>
+      </div>
       {/* Ant Design Table */}
       <Table
         columns={columns}
@@ -86,40 +102,36 @@ const Users = () => {
       >
         <div>
           <h2 className="text-lg text-center mb-4">User Details</h2>
-          <div className="flex justify-between mb-2 text-gray-600">
+          {/* <div className="flex justify-between mb-2 text-gray-600  border-b border-[#79CDFF] pb-1">
             <p>#SL</p>
             <p>{modalData.transIs}</p>
-          </div>
-          <div className="flex justify-between mb-2 text-gray-600">
+          </div> */}
+          <div className="flex justify-between mb-2 text-gray-600  border-b border-[#79CDFF] pb-1">
             <p>User Name</p>
             <p>{modalData.name}</p>
           </div>
-          <div className="flex justify-between mb-2 text-gray-600">
+          <div className="flex justify-between mb-2 text-gray-600  border-b border-[#79CDFF] pb-1">
             <p>Email</p>
             <p>{modalData.Email}</p>
           </div>
-          <div className="flex justify-between mb-2 text-gray-600">
+          <div className="flex justify-between mb-2 text-gray-600  border-b border-[#79CDFF] pb-1">
             <p>Mobile Phone</p>
             <p>{modalData.Phone}</p>
           </div>
-          <div className="flex justify-between mb-2 text-gray-600">
-            <p>Service</p>
-            <p>{modalData.transIs}</p>
-          </div>
-          <div className="flex justify-between mb-2 text-gray-600">
+
+          <div className="flex justify-between mb-2 text-gray-600  border-b border-[#79CDFF] pb-1">
             <p>Date</p>
             <p>{modalData.transIs}</p>
           </div>
-          <div className="flex justify-between mb-2 text-gray-600">
-            <p>Time</p>
-            <p>{modalData.transIs}</p>
+
+
+          <div className="p-4 mt-auto text-center mx-auto flex items-center justify-center">
+            <button
+              className="w-[300px] bg-[#174C6B] text-white px-10 h-[50px] flex items-center justify-center gap-3 text-lg outline-none rounded-xl"
+            >
+              <span className="text-white font-light">Okay</span>
+            </button>
           </div>
-          <div className="flex justify-between mb-2 text-gray-600">
-            <p>Amount</p>
-            <p>{modalData.transIs}</p>
-          </div>
-         
-          
         </div>
       </DashboardModal>
     </div>
