@@ -1,5 +1,7 @@
 import { useState } from "react"
 import tickImg from '../../../assets/images/membership-tick.png'
+import { FaPlus } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
     { id: 1, name: 'Workout Membership', price: 0, features: ['View Members Directory', 'View Members Profile', 'Send Private Messages', 'Add Media To Your Profile'] },
@@ -9,6 +11,7 @@ const plans = [
 const Subscription = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const navigate = useNavigate();
 
     const handleSubscribe = async (e) => {
         e.preventDefault()
@@ -45,32 +48,37 @@ const Subscription = () => {
         }
     }
     return (
-        <div className="py-20">
-            <div className='flex items-center justify-center gap-12'>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {plans.map((plan) => (
-                        <div key={plan.id} className="bg-white rounded-xl w-64 py-6">
-                            <div className="flex flex-col items-center justify-center text-[#EB4B73] gap-2 pb-5 border-b-2 border-b-[#EB4B73]/20 min-h-[130px]">
-                                <h1 className="text-xl text-center">{plan.name}</h1>
-                                <div className="flex flex-col items-center">
-                                    <div className="flex items-center text-xl">
-                                        <span>{plan.price === 0 ? '' : '$'}</span>
-                                        <h2>{plan.price === 0 ? 'Free' : plan.price}</h2>
-                                    </div>
-                                    <span className="text-xs">{plan.price === 0 ? '' : '/month'}</span>
-                                </div>
-                            </div>
-                            <div className="flex items-center justify-center py-6">
-                                <div className="space-y-5 flex flex-col items-start justify-center">
-                                    {plan.features.map((option, i) => (
-                                        <div key={i} className="flex items-start gap-3">
-                                            <img src={tickImg}
-                                                alt='Tick image' className="w-5 h-5" />
+        <div>
+            <button className="px-6 py-2 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring float-end flex items-center gap-2" onClick={() => navigate("/add-subscription")}>
+                <FaPlus />
+                Add new subscription</button>
+            <div className="py-20">
 
-                                            <h3 className="text-xs max-w-[160px]">{option}</h3>
+                <div className='flex items-center justify-center gap-12'>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {plans.map((plan) => (
+                            <div key={plan.id} className="bg-white rounded-xl w-64 py-6">
+                                <div className="flex flex-col items-center justify-center text-[#EB4B73] gap-2 pb-5 border-b-2 border-b-[#EB4B73]/20 min-h-[130px]">
+                                    <h1 className="text-xl text-center">{plan.name}</h1>
+                                    <div className="flex flex-col items-center">
+                                        <div className="flex items-center text-xl">
+                                            <span>{plan.price === 0 ? '' : '$'}</span>
+                                            <h2>{plan.price === 0 ? 'Free' : plan.price}</h2>
                                         </div>
-                                    ))}
-                                    {/* {plan.options.map((option, i) => (
+                                        <span className="text-xs">{plan.price === 0 ? '' : '/month'}</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-center py-6">
+                                    <div className="space-y-5 flex flex-col items-start justify-center">
+                                        {plan.features.map((option, i) => (
+                                            <div key={i} className="flex items-start gap-3">
+                                                <img src={tickImg}
+                                                    alt='Tick image' className="w-5 h-5" />
+
+                                                <h3 className="text-xs max-w-[160px]">{option}</h3>
+                                            </div>
+                                        ))}
+                                        {/* {plan.options.map((option, i) => (
                                         <div key={i} className="flex items-center gap-3">
                                             <Image
                                                 src={tickImg}
@@ -81,14 +89,15 @@ const Subscription = () => {
                                             <h3 className="text-xs">{option}</h3>
                                         </div>
                                     ))} */}
-                                    <div className="flex justify-center items-center gap-3">
-                                        <button className="px-6 py-1.5 min-w-[100px] text-center text-[#345C8C] bg-[#EBF8FF] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={handleSubscribe}>Delete</button>
-                                        <button className="px-6 py-1.5 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={handleSubscribe}>Edit</button>
+                                        <div className="flex justify-center items-center gap-3">
+                                            <button className="px-6 py-1.5 min-w-[100px] text-center text-[#345C8C] bg-[#EBF8FF] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={handleSubscribe}>Delete</button>
+                                            <button className="px-6 py-1.5 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={handleSubscribe}>Edit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

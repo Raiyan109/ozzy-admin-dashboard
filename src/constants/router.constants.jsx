@@ -29,6 +29,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { LuCrown } from "react-icons/lu";
 import Subscription from "../pages/Main/Subscription/Subscription";
 import Notifications from "../pages/Main/Notifications/Notifications";
+import AddSubscription from "../pages/Main/AddSubscription/AddSubscription";
 
 export const dashboardItems = [
   {
@@ -71,6 +72,10 @@ export const dashboardItems = [
   {
     path: "notifications",
     element: <Notifications />,
+  },
+  {
+    path: "add-subscription",
+    element: <AddSubscription />,
   },
   // {
   //   path: '/reviews',
