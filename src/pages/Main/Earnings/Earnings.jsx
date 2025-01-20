@@ -68,67 +68,98 @@ const Earnings = () => {
     });
   }
   return (
-    <div className="rounded-lg border py-4 border-black mt-8 recent-users-table">
-      <h3 className="text-2xl text-black mb-4 pl-2">Earnings</h3>
-      {/* Ant Design Table */}
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={{ position: ["bottomCenter"] }}
-        className="rounded-lg"
-      />
-
-      {/* Dashboard Modal */}
-      <DashboardModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        maxWidth="500px"
-        backgroundColor="bg-[#EDEAF3]"
-      >
-        <div className="">
-          <h2 className="text-lg text-center mb-4">Transaction Details</h2>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>Transaction ID :</p>
-            <p>{modalData.transIs}</p>
+    <div>
+      {/* Stats */}
+      <div className="flex items-center gap-10">
+        <div className="flex items-center gap-6 px-[24px] bg-[#345C8C] border border-black  py-[20px] rounded-lg space-y-3  w-80">
+          <div className="">
+            <h3 className="text-[20px] text-white">{"Total Earnings"}</h3>
+            <h3 className="text-[30px] text-white font-extralight">$254.99</h3>
           </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>Date :</p>
-            <p>{modalData.name}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>User Name :</p>
-            <p>{modalData.Email}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>Mobile Phone :</p>
-            <p>{modalData.Phone}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>A/C number :</p>
-            <p>{modalData.transIs}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>A/C holder name :</p>
-            <p>{modalData.transIs}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>Transaction amount</p>
-            <p>{modalData.transIs}</p>
-          </div>
-          <div className="flex justify-between mb-6 text-gray-600">
-            <p>Service</p>
-            <p>{modalData.transIs}</p>
-          </div>
-
-          <div className="p-4 mt-auto text-center mx-auto flex items-center justify-center">
-                    <button                     
-                      className="w-fit bg-black text-white px-10 py-2 flex items-center justify-center gap-3 text-lg outline-none rounded-2xl"
-                    >
-                      <span className="text-white font-light">Download</span>
-                    </button>
-                  </div>
         </div>
-      </DashboardModal>
+
+        <div className="flex items-center gap-6 border border-[#345C8C] px-[24px] py-[20px] rounded-lg space-y-3 bg-white w-80 text-[#345C8C]">
+          <div className="">
+            <h3 className="text-[20px]">{"Total Users"}</h3>
+            <h3 className="text-[30px] font-extralight">6500</h3>
+          </div>
+        </div>
+      </div>
+      <div className="rounded-lg border py-4 border-black mt-8 recent-users-table">
+        <div className="flex justify-between px-2">
+          <h3 className="text-2xl text-black mb-4 pl-2">Earnings</h3>
+          <div className="flex items-center gap-4 mb-6">
+            <DatePicker placeholder="Date" className="w-48 border-[#345C8C]" />
+            <Input placeholder="Name" className="w-48 placeholder:text-[#345C8C]" />
+            <Input placeholder="Subscription Name" className="w-48 placeholder:text-[#345C8C]" />
+            {/* <Button style={{ border: 'none', backgroundColor: '#EBF8FF', color: '#174C6B', borderRadius: '8px' }}>
+              <IoSearch />
+            </Button> */}
+            <button style={{ border: 'none', backgroundColor: '#85cff7', color: '#174C6B', borderRadius: '50%', padding: '6px' }}><IoSearch size={20} /></button>
+          </div>
+        </div>
+
+
+        {/* Ant Design Table */}
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={{ position: ["bottomCenter"] }}
+          className="rounded-lg"
+        />
+
+        {/* Dashboard Modal */}
+        <DashboardModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          maxWidth="500px"
+          backgroundColor="bg-[#EDEAF3]"
+        >
+          <div className="">
+            <h2 className="text-lg text-center mb-4">Transaction Details</h2>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>Transaction ID :</p>
+              <p>{modalData.transIs}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>Date :</p>
+              <p>{modalData.name}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>User Name :</p>
+              <p>{modalData.Email}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>Mobile Phone :</p>
+              <p>{modalData.Phone}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>A/C number :</p>
+              <p>{modalData.transIs}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>A/C holder name :</p>
+              <p>{modalData.transIs}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>Transaction amount</p>
+              <p>{modalData.transIs}</p>
+            </div>
+            <div className="flex justify-between mb-6 text-gray-600">
+              <p>Service</p>
+              <p>{modalData.transIs}</p>
+            </div>
+
+            <div className="p-4 mt-auto text-center mx-auto flex items-center justify-center">
+              <button
+                className="w-fit bg-black text-white px-10 py-2 flex items-center justify-center gap-3 text-lg outline-none rounded-2xl"
+              >
+                <span className="text-white font-light">Download</span>
+              </button>
+            </div>
+          </div>
+        </DashboardModal>
+      </div>
     </div>
   )
 }
