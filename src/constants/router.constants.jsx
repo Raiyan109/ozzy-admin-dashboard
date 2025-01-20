@@ -28,6 +28,7 @@ import { TbCoin } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuCrown } from "react-icons/lu";
 import Subscription from "../pages/Main/Subscription/Subscription";
+import Notifications from "../pages/Main/Notifications/Notifications";
 
 export const dashboardItems = [
   {
@@ -67,10 +68,10 @@ export const dashboardItems = [
   //     },
   //   ],
   // },
-  // {
-  //   path: "notifications",
-  //   element: <Notifications />,
-  // },
+  {
+    path: "notifications",
+    element: <Notifications />,
+  },
   // {
   //   path: '/reviews',
   //   element: <Review></Review>
