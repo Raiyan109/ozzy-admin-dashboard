@@ -27,7 +27,7 @@ const DashboardModal = ({
       closeIcon={false}
       style={{
         maxWidth: maxWidth || "444px",
-        backgroundColor: backgroundColor ,
+        backgroundColor: backgroundColor,
       }}
     >
       <div>
@@ -36,7 +36,7 @@ const DashboardModal = ({
             onClick={handleCancel}
             type="primary"
             danger
-            className="absolute top-0 right-0 text-white bg-[#EB5757] shadow-inner px-2.5 py-2 rounded-none rounded-bl-xl rounded-tr-md"
+            className="absolute top-0 right-0 text-[#174C6B] bg-[#C1E8FF] shadow-inner px-2.5 py-2 rounded-none rounded-bl-xl rounded-tr-md"
           >
             <IoMdClose size={23} />
           </button>
