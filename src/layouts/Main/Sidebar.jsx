@@ -15,13 +15,19 @@ const Sidebar = () => {
 
   const handleLogOut = () => {
     Swal.fire({
-      text: "Are you sure you want to logout?",
+      text: "Are you sure you want to Log out from this site? ",
       showCancelButton: true,
       confirmButtonText: "     Sure    ",
       cancelButtonText: "Cancel",
       showConfirmButton: true,
-      confirmButtonColor: "#DC2626",
+      confirmButtonColor: "#345C8C",
       reverseButtons: true,
+      customClass: {
+        confirmButton: "swal-confirm-btn",
+        cancelButton: "swal-cancel-btn",
+        actions: "swal-actions-container",
+        popup: "swal-popup",
+      },
     }).then((res) => {
       if (res.isConfirmed) {
         // dispatch(logout());

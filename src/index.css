@@ -302,3 +302,45 @@
   overflow-y: auto;
   /* Enable vertical scrolling if necessary */
 }
+
+.swal-popup {
+  width: 700px !important;
+  height: 200px;
+  /* Adjust the width as needed */
+  /* max-width: 100%; */
+  /* Ensure it is responsive */
+  border-radius: 12px;
+  /* Optional: Adjust modal corner radius */
+  padding: 20px;
+  /* Optional: Add padding */
+}
+
+.swal-confirm-btn {
+  width: 240px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #345c8c !important;
+  color: white !important;
+  font-size: 16px;
+}
+
+.swal-cancel-btn {
+  width: 240px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #ebf8ff !important;
+  color: #345c8c !important;
+  font-size: 16px;
+}
+
+.swal-actions-container {
+  display: flex !important;
+  gap: 1px;
+  /* Adds spacing between the buttons */
+  justify-content: center;
+  /* Centers buttons horizontally */
+  align-items: center;
+  /* Centers buttons vertically */
+  margin-top: 20px;
+  /* Adds spacing above the buttons */
+}
