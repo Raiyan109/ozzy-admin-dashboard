@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import { Form, Input, Button, Select, Space } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 const { Option } = Select;
 import { FaAngleLeft } from "react-icons/fa6";
 
@@ -24,9 +24,13 @@ const AddSubscription = () => {
     };
     const navigate = useNavigate();
 
+    const handleBackButtonClick = () => {
+        navigate(-1); // This takes the user back to the previous page
+    };
+
     return (
         <>
-            <div className="flex items-center gap-2 text-xl">
+            <div className="flex items-center gap-2 text-xl cursor-pointer" onClick={handleBackButtonClick}>
                 <FaAngleLeft />
                 <h1>Add Subscription</h1>
             </div>
@@ -43,10 +47,10 @@ const AddSubscription = () => {
                         // style={{ maxWidth: 600, margin: '0 auto' }}
                         >
                             {/* Section 1 */}
-                            <Space direction="vertical" style={{ width: '100%' }}>
+                            <Space direction="vertical" style={{ width: '100%', borderBottom: '2px solid rgb(52 92 140 / 0.5)' }}>
                                 <Space size="large" direction="horizontal" className="responsive-space">
                                     <Form.Item
-                                        label="Package Name"
+                                        label={<span style={{ fontSize: '18px', fontWeight: '600', color: '#2D2D2D' }}>Package Name</span>}
                                         name="packageName"
                                         className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please select a package name!' }]}
@@ -58,7 +62,7 @@ const AddSubscription = () => {
                                         </Select>
                                     </Form.Item>
                                     <Form.Item
-                                        label="Package Amount"
+                                        label={<span style={{ fontSize: '18px', fontWeight: '600', color: '#2D2D2D' }}>Package Amount</span>}
                                         name="packageAmount"
                                         className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please enter the package amount!' }]}
@@ -66,7 +70,7 @@ const AddSubscription = () => {
                                         <Input type="number" placeholder="Enter Amount" style={{ height: '40px' }} />
                                     </Form.Item>
                                     <Form.Item
-                                        label="Package Duration"
+                                        label={<span style={{ fontSize: '18px', fontWeight: '600', color: '#2D2D2D' }}>Package Duration</span>}
                                         name="packageDuration"
                                         className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please select a duration!' }]}
@@ -81,36 +85,71 @@ const AddSubscription = () => {
                             </Space>
 
                             {/* Section 2 */}
-                            <Form.Item label="Package Features">
-                                {features.map((feature, index) => (
-                                    <Space key={index} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
-                                        <Input
-                                            placeholder="Enter feature"
-                                            value={feature}
-                                            onChange={(e) => {
-                                                const newFeatures = [...features];
-                                                newFeatures[index] = e.target.value;
-                                                setFeatures(newFeatures);
-                                            }}
-                                        />
-                                        {features.length > 1 && (
-                                            <MinusCircleOutlined
-                                                style={{ color: 'red' }}
-                                                onClick={() => removeFeature(index)}
-                                            />
-                                        )}
-                                    </Space>
-                                ))}
-                                <Button type="dashed" onClick={addFeature} icon={<PlusOutlined />} block>
-                                    Add Feature
-                                </Button>
+                            <Form.Item>
+                                <h1 className="text-xl py-5">Package Features</h1>
+                                {/* <Space direction="horizontal" style={{ width: '100%', justifyContent: 'start', alignItems: 'center' }}> */}
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', }}>
+                                    <div style={{ flex: 1 }}>
+                                        {features.map((feature, index) => (
+                                            <Space key={index} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                                                <Input
+                                                    placeholder="Add New Feature"
+                                                    value={feature}
+                                                    onChange={(e) => {
+                                                        const newFeatures = [...features];
+                                                        newFeatures[index] = e.target.value;
+                                                        setFeatures(newFeatures);
+                                                    }}
+                                                    style={{ width: '1320px', height: '40px', border: '1px solid #345C8C' }}
+                                                />
+                                                {features.length > 1 && (
+                                                    <Button style={{
+                                                        color: '#345C8C',
+                                                        borderRadius: '50%',
+                                                        padding: '10px',
+                                                        height: '40px',
+                                                        width: '40px',
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center',
+                                                    }}>
+                                                        <MinusOutlined
+
+                                                            onClick={() => removeFeature(index)}
+                                                        />
+                                                    </Button>
+                                                )}
+                                            </Space>
+                                        ))}
+                                    </div>
+                                    <Button type=""
+                                        // style={{ color: '#345C8C', borderRadius: '50%', padding: '10px', height: '40px', width: '40px' }}
+                                        style={{
+                                            color: '#345C8C',
+                                            borderRadius: '50%',
+                                            padding: '10px',
+                                            height: '40px',
+                                            width: '40px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                        }}
+                                        onClick={addFeature} block>
+                                        <PlusOutlined />
+                                    </Button>
+                                </div>
+                                {/* </Space> */}
                             </Form.Item>
 
                             {/* Submit Button */}
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" block>
-                                    Create
-                                </Button>
+                                <div className="p-4 mt-auto text-center mx-auto flex items-center justify-center">
+                                    <button
+                                        className="w-[500px] bg-[#174C6B] text-white px-10 h-[40px] flex items-center justify-center gap-3 text-lg outline-none rounded-xl"
+                                    >
+                                        <span className="text-white font-light">Create</span>
+                                    </button>
+                                </div>
                             </Form.Item>
                         </Form>
                     </div>
