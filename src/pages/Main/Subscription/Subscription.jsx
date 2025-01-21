@@ -3,6 +3,7 @@ import tickImg from '../../../assets/images/membership-tick.png'
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import AddNewButton from "../../../Components/AddNewButton";
+import Swal from "sweetalert2";
 
 const plans = [
     { id: 1, name: 'Workout Membership', price: 0, features: ['View Members Directory', 'View Members Profile', 'Send Private Messages', 'Add Media To Your Profile'] },
@@ -48,6 +49,31 @@ const Subscription = () => {
             setIsLoading(false)
         }
     }
+
+    const handleDelete = () => {
+        Swal.fire({
+            text: "Are you sure you want to delete this subscription? ",
+            showCancelButton: true,
+            confirmButtonText: "     Sure    ",
+            cancelButtonText: "Cancel",
+            showConfirmButton: true,
+            confirmButtonColor: "#345C8C",
+            reverseButtons: true,
+            customClass: {
+                confirmButton: "swal-confirm-btn",
+                cancelButton: "swal-cancel-btn",
+                actions: "swal-actions-container",
+                popup: "swal-popup",
+            },
+        }).then((res) => {
+            if (res.isConfirmed) {
+                // dispatch(logout());
+                // localStorage.removeItem("token");
+                // localStorage.removeItem("user-update");
+                // navigate("/auth");
+            }
+        });
+    };
     return (
         <div>
             <button className="px-6 py-2 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring float-end flex items-center gap-2" onClick={() => navigate("/add-subscription")}>
@@ -92,7 +118,7 @@ const Subscription = () => {
                                         </div>
                                     ))} */}
                                         <div className="flex justify-center items-center gap-3">
-                                            <button className="px-6 py-1.5 min-w-[100px] text-center text-[#345C8C] bg-[#EBF8FF] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" >Delete</button>
+                                            <button className="px-6 py-1.5 min-w-[100px] text-center text-[#345C8C] bg-[#EBF8FF] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={handleDelete} >Delete</button>
                                             <button className="px-6 py-1.5 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring" onClick={() => navigate("/edit-subscription")}>Edit</button>
                                         </div>
                                     </div>

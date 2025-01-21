@@ -28,6 +28,8 @@ const AddSubscription = () => {
         navigate(-1); // This takes the user back to the previous page
     };
 
+
+
     return (
         <>
             <div className="flex items-center gap-2 text-xl cursor-pointer" onClick={handleBackButtonClick}>
@@ -86,7 +88,7 @@ const AddSubscription = () => {
 
                             {/* Section 2 */}
                             <Form.Item>
-                                <h1 className="text-xl py-5">Package Features</h1>
+                                <h1 className="text-[18px] font-semibold py-5">Package Features</h1>
                                 {/* <Space direction="horizontal" style={{ width: '100%', justifyContent: 'start', alignItems: 'center' }}> */}
                                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', }}>
                                     <div style={{ flex: 1 }}>
