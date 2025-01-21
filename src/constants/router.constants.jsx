@@ -30,6 +30,7 @@ import { LuCrown } from "react-icons/lu";
 import Subscription from "../pages/Main/Subscription/Subscription";
 import Notifications from "../pages/Main/Notifications/Notifications";
 import AddSubscription from "../pages/Main/AddSubscription/AddSubscription";
+import EditSubscription from "../pages/Main/EditSubscription/EditSubscription";
 
 export const dashboardItems = [
   {
@@ -76,6 +77,10 @@ export const dashboardItems = [
   {
     path: "add-subscription",
     element: <AddSubscription />,
+  },
+  {
+    path: "edit-subscription",
+    element: <EditSubscription />,
   },
   // {
   //   path: '/reviews',
