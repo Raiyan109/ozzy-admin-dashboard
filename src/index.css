@@ -344,3 +344,32 @@
   margin-top: 20px;
   /* Adds spacing above the buttons */
 }
+
+
+/* Subscription page form input responsive classes */
+.responsive-space {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .responsive-space {
+    flex-direction: column;
+  }
+}
+
+.responsive-space {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.responsive-form-item {
+  flex: 1;
+  min-width: 440px;
+}
+
+.responsive-input {
+  height: 40px;
+}

@@ -44,11 +44,11 @@ const AddSubscription = () => {
                         >
                             {/* Section 1 */}
                             <Space direction="vertical" style={{ width: '100%' }}>
-                                <Space size="large" direction="horizontal" style={{ width: '100%' }}>
+                                <Space size="large" direction="horizontal" className="responsive-space">
                                     <Form.Item
                                         label="Package Name"
                                         name="packageName"
-                                        style={{ flex: 1, width: '400px' }}
+                                        className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please select a package name!' }]}
                                     >
                                         <Select placeholder="Select Package" style={{ height: '40px' }}>
@@ -60,7 +60,7 @@ const AddSubscription = () => {
                                     <Form.Item
                                         label="Package Amount"
                                         name="packageAmount"
-                                        style={{ flex: 1, width: '400px' }}
+                                        className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please enter the package amount!' }]}
                                     >
                                         <Input type="number" placeholder="Enter Amount" style={{ height: '40px' }} />
@@ -68,7 +68,7 @@ const AddSubscription = () => {
                                     <Form.Item
                                         label="Package Duration"
                                         name="packageDuration"
-                                        style={{ flex: 1, width: '400px' }}
+                                        className="responsive-form-item"
                                     // rules={[{ required: true, message: 'Please select a duration!' }]}
                                     >
                                         <Select placeholder="Select Duration" style={{ height: '40px' }}>
