@@ -60,11 +60,15 @@ const Header = () => {
             </div>
           </Badge>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <div>
             <img src={profileImage} alt="" className="rounded-full h-[42px] w-[42px]" />
           </div>
-          <Select
+          <div className="flex flex-col items-center">
+            <h1 className="text-white text-lg">Jane</h1>
+            <h1 className="text-white text-xs">Admin</h1>
+          </div>
+          {/* <Select
             defaultValue="Jane Cooper"
             style={{
               width: 120,
@@ -82,7 +86,7 @@ const Header = () => {
                 label: 'Lucy',
               }
             ]}
-          />
+          /> */}
         </div>
       </div>
     </div>
