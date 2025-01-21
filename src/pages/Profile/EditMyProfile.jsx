@@ -13,6 +13,10 @@ import { FaAngleLeft } from "react-icons/fa6";
 const EditMyProfile = () => {
   const [code, setCode] = useState();
   const navigate = useNavigate();
+
+  const handleBackButtonClick = () => {
+    navigate(-1); // This takes the user back to the previous page
+  };
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -29,14 +33,14 @@ const EditMyProfile = () => {
 
   return (
     <>
-      <div className="flex items-center gap-2 text-xl">
+      <div className="flex items-center gap-2 text-xl cursor-pointer" onClick={handleBackButtonClick}>
         <FaAngleLeft />
-        <h1>Personal information</h1>
+        <h1>Personal information Edit</h1>
       </div>
-      <div className="rounded-lg py-4 border-lightGray border-2 shadow-lg mt-8 bg-white">
+      <div className="rounded-lg py-4 border-[#345C8C]/40 border-2 shadow-lg mt-8 bg-white">
         <div className="space-y-[24px] min-h-[83vh] bg-light-gray rounded-2xl">
-          <h3 className="text-2xl text-black mb-4 pl-5 border-b-2 border-lightGray/40 pb-3">
-            Personal information
+          <h3 className="text-2xl text-[#345C8C] mb-4 pl-5 border-b-2 border-[#345C8C]/40 pb-3">
+            Personal information Edit
           </h3>
           <div className="w-full">
             <Form
@@ -99,7 +103,7 @@ const EditMyProfile = () => {
                     // onClick={(e) => navigate(`edit`)}
                     size="large"
                     type="primary"
-                    className="px-8 bg-black text-white hover:bg-black/90 rounded-full font-semibold"
+                    className="px-8 bg-[#345C8C] text-white hover:bg-black/90 rounded-xl font-semibold h-11"
                   >
                     Save Changes
                   </Button>

@@ -20,15 +20,19 @@ const MyProfile = () => {
     phone: "+880 1550597212",
     profile: dashProfile,
   };
+
+  const handleBackButtonClick = () => {
+    navigate(-1); // This takes the user back to the previous page
+  };
   // console.log(code);
   return (
     <>
-      <div className="flex items-center gap-2 text-xl">
+      <div className="flex items-center gap-2 text-xl cursor-pointer" onClick={handleBackButtonClick}>
         <FaAngleLeft />
-        <h1>Personal information</h1>
+        <h1 className="">Personal information</h1>
       </div>
-      <div className="rounded-lg py-4 border-lightGray border-2 shadow-lg mt-8 bg-white">
-        <h3 className="text-2xl text-black mb-4 pl-5 border-b-2 border-lightGray/40 pb-3">
+      <div className="rounded-lg py-4 border-lightGray border-2 shadow-lg mt-8 bg-[#F4F9FB]">
+        <h3 className="text-2xl text-[#345C8C] mb-4 pl-5 border-b-2 border-lightGray/40 pb-3">
           Personal information
         </h3>
         <div>
@@ -42,7 +46,7 @@ const MyProfile = () => {
                   onClick={(e) => navigate(`edit`)}
                   size="large"
                   type="default"
-                  className="px-8 bg-black text-white hover:bg-black/90 rounded-full font-semibold"
+                  className="px-8 bg-[#345C8C] text-white hover:bg-black/90 rounded-xl font-semibold h-11"
                 >
                   <FaRegEdit />
                   Edit Profile
