@@ -2,7 +2,7 @@ import { Button, Checkbox, Input } from "antd";
 import Form from "antd/es/form/Form";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import image from "../../assets/images/reset-pass.png";
+import image from "../../assets/images/login.png";
 // import { useDispatch } from "react-redux";
 // import { usePostLoginMutation } from "../../redux/features/Auth/authApi";
 // import { setUser } from "../../redux/features/Auth/authSlice";
@@ -56,14 +56,14 @@ const SignIn = () => {
   };
   return (
     <div className="min-h-[92vh] w-full grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-1 lg:gap-8">
-      <div className="lg:border-r-2 border-primary mx-auto w-[92%] lg:p-[15%] lg:pr-[20%] ">
-        <img src={image} alt="" />
+      <div className="lg:border-r-2 border-primary mx-auto w-full lg:p-[15%] lg:pr-[20%] ">
+        <img src={image} alt="" className="w-full h-full object-contain" />
       </div>
       <div className="lg:p-[5%] order-first lg:order-last">
         <div className="w-full py-[44px] lg:px-[44px]">
           <div className="pb-[30px] space-y-2">
-            <h1 className="text-[33px] text-center font-semibold ">Login to Account!</h1>
-            <p className="text-hash text-center lg:text-lg">Please enter your email and password to continue.</p>
+            <h1 className="text-[33px] text-center text-[#3A3A3A]">Sign in</h1>
+
           </div>
           <Form
             name="normal_login"
@@ -74,26 +74,26 @@ const SignIn = () => {
             onFinish={onFinish}
             requiredMark={false}
             className="text-start"
-            
+
           >
             <Form.Item
-            label={<span className="font-medium text-base">Email</span>}
-              name="email"
-              rules={[
-                {
-                  type: "email",
-                  message: "Please input a valid Email!",
-                },
-                {
-                  required: true,
-                  message: "Please input your Email!",
-                },
-              ]}
+              // label={<span className="font-medium text-base">Email</span>}
+              name="text"
+            // rules={[
+            //   {
+            //     type: "text",
+            //     message: "Please input a valid Email!",
+            //   },
+            //   {
+            //     required: true,
+            //     message: "Please input your Email!",
+            //   },
+            // ]}
             >
-              <Input size="large" placeholder="admin@gmail.com" />
+              <Input size="large" placeholder="User Name" style={{ border: '1px solid #2781B5', borderRadius: '7px' }} />
             </Form.Item>
             <Form.Item
-              label={<span className="font-medium text-base">Password</span>}
+              // label={<span className="font-medium text-base">Password</span>}
               className="mt-6"
               name="password"
               rules={[
@@ -103,7 +103,7 @@ const SignIn = () => {
                 },
               ]}
             >
-              <Input.Password size="large" placeholder="**********" />
+              <Input.Password size="large" placeholder="Password" style={{ border: '1px solid #2781B5', borderRadius: '7px' }} />
             </Form.Item>
             <div className="flex justify-between items-center">
               <Form.Item name="remember" valuePropName="checked">
@@ -122,14 +122,14 @@ const SignIn = () => {
               </Form.Item>
             </div>
             <div className="w-full flex justify-center ">
-                <Button
-                  type="primary"
-                  size="large"
-                  htmlType="submit"
-                  className="px-2 w-full bg-playground"
-                >
-                  Sign In
-                </Button>
+              <Button
+                type="primary"
+                size="large"
+                htmlType="submit"
+                className="px-8 bg-[#345C8C] text-white hover:bg-[#345C8C]/90 rounded-xl font-semibold h-11 min-w-[400px]"
+              >
+                Sign In
+              </Button>
             </div>
           </Form>
         </div>

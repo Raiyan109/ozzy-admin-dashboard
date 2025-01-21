@@ -121,8 +121,8 @@
 /* React Quill */
 /* Parent Container */
 .ql-toolbar-container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 /* Quill Toolbar Styling */
@@ -143,6 +143,17 @@
   border-right: 1px solid #474747;
   padding-right: 8px;
   margin-right: 8px;
+
+}
+
+/* Change the bold button color to white */
+.ql-toolbar.ql-snow .ql-formats .ql-bold {
+  color: white !important;
+}
+
+/* Target the SVG inside the bold button */
+.ql-toolbar.ql-snow .ql-formats .ql-bold svg {
+  fill: white !important;
 }
 
 .ql-toolbar.ql-snow .ql-formats:last-child {
@@ -158,6 +169,7 @@
 
 .ql-toolbar .ql-picker.ql-size {
   width: auto;
+  color: white;
   /* Ensure the dropdown can expand */
 }
 
@@ -217,6 +229,10 @@
   gap: 5px;
   /* Space between "T" and the circle */
   margin-left: -13px;
+}
+
+.ql-snow .ql-picker.ql-color {
+  color: white;
 }
 
 /* Override the default label of the color picker */
