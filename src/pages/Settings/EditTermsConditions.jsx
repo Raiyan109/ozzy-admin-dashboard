@@ -44,11 +44,14 @@ const formats = [
 const EditTermsConditions = () => {
   const navigate = useNavigate();
   const [content, setContent] = useState("");
-  console.log(content);
+
+  const handleBackButtonClick = () => {
+    navigate(-1); // This takes the user back to the previous page
+  };
 
   return (
     <>
-      <div className="flex items-center gap-2 text-xl">
+      <div className="flex items-center gap-2 text-xl cursor-pointer" onClick={handleBackButtonClick}>
         <FaAngleLeft />
         <h1>Terms & Condition </h1>
       </div>
@@ -96,7 +99,7 @@ const EditTermsConditions = () => {
               // onClick={(e) => navigate(`edit`)}
               size="large"
               type="primary"
-              className="px-8 bg-black text-white hover:bg-black/90 rounded-full font-semibold w-1/4"
+              className="px-8 bg-[#345C8C] text-white hover:bg-black/90 rounded-xl font-semibold h-11 min-w-[300px]"
             >
               Update
             </Button>

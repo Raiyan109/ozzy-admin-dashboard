@@ -301,7 +301,13 @@
   max-height: none;
   /* Allow the editor to grow */
   overflow-y: auto;
+  /* background-color: #345C8C; */
   /* Enable vertical scrolling if necessary */
+}
+
+.custom-quill-editor .ql-toolbar.ql-snow {
+  background-color: #345C8C;
+
 }
 
 .swal-popup {
