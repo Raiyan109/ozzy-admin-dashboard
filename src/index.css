@@ -107,6 +107,7 @@
 
 .ant-input {
   border-color: #888787;
+  border-radius: 6px;
 }
 
 .ant-input:hover {

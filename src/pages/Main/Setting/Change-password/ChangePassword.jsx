@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
     const navigate = useNavigate();
+    const handleBackButtonClick = () => {
+        navigate(-1); // This takes the user back to the previous page
+    };
     return (
         <div className="flex items-center justify-center ">
-            <div className="bg-white rounded-lg shadow-lg mt-8 w-[610px] h-[725px] mx-auto py-10 px-8">
+            <div className="bg-[#F4F9FB] rounded-lg shadow-lg mt-8 w-[610px] h-[725px] mx-auto py-10 px-8">
                 <div className="flex flex-col  w-full max-w-md mx-auto mt-10 p-4 rounded-lg space-y-4">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={handleBackButtonClick}>
                         <FaArrowLeft />
                         <h1>Change password</h1>
                     </div>
@@ -25,7 +28,7 @@ const ChangePassword = () => {
                                 <h1 className="mb-3">{label}</h1>
                                 <div key={index} className="relative flex items-center">
                                     {/* Lock Icon */}
-                                    <MdLockOutline className="absolute left-3 " />
+                                    <MdLockOutline className="absolute left-3 text-[#345C8C]" />
                                     {/* Input Field */}
                                     <input
                                         type="password"
@@ -40,12 +43,12 @@ const ChangePassword = () => {
                     </div>
 
                     {/* Forgot Password */}
-                    <p className="mt-4 text-sm text-black font-bold cursor-pointer hover:underline" onClick={(e) => navigate(`forgot-password`)}>
+                    <p className="mt-4 text-sm text-[#345C8C] ml-auto cursor-pointer hover:underline" onClick={(e) => navigate(`forgot-password`)}>
                         Forgot Password?
                     </p>
 
                     {/* Update Password Button */}
-                    <button className="mt-6 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800">
+                    <button className="mt-6 w-full bg-[#345C8C] text-white py-2 rounded-lg hover:bg-[#345C8C]/80">
                         Update Password
                     </button>
                 </div>

@@ -16,7 +16,7 @@ const VerifyEmail = () => {
 
     return (
         <div className="flex items-center justify-center ">
-            <div className="bg-white rounded-lg shadow-lg mt-8 w-[610px] h-[468px] mx-auto py-10 px-8">
+            <div className="bg-[#F4F9FB] rounded-lg shadow-lg mt-8 w-[610px] h-[468px] mx-auto py-10 px-8">
                 <div className="flex flex-col  w-full max-w-md mx-auto mt-10 p-4 rounded-lg space-y-4">
                     <div className="flex items-center gap-2">
                         <FaArrowLeft />
@@ -28,10 +28,10 @@ const VerifyEmail = () => {
 
                     <div className="flex justify-between items-center">
                         <h1>Didn’t receive the code?</h1>
-                        <h1>Resend</h1>
+                        <h1 className="text-[#345C8C] font-bold">Resend</h1>
                     </div>
                     {/* Send OTP Button */}
-                    <button className="mt-6 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800" onClick={(e) => navigate(`verify-email`)}>
+                    <button className="mt-6 w-full bg-[#345C8C] text-white py-2 rounded-lg hover:bg-[#345C8C]/80" onClick={(e) => navigate(`verify-email`)}>
                         Verify
                     </button>
                 </div>
