@@ -11,7 +11,7 @@ const ForgotPassword = () => {
   const navigate = useNavigate();
   // const [forgotPassword, { isLoading }] = useForgotPasswordMutation();
   const onFinish = async (values) => {
-    navigate(`/auth/verify-email`);
+    navigate(`/auth/verify-email`, { state: { email: values.email } });
     // try {
     //   const response = await forgotPassword(values);
     //   // console.log(response);
@@ -40,14 +40,12 @@ const ForgotPassword = () => {
       <div className="border-r-0 lg:border-r-2 border-primary w-[99%] p-[8%] lg:p-[12%] lg:pr-0">
         <img src={image} alt="" />
       </div>
-      <div className="lg:p-[5%] order-first lg:order-last">
+      <div className="lg:p-[5%] order-first lg:order-first">
         <div className="w-full py-[64px] lg:px-[44px] space-y-8">
           <div className="flex flex-col items-center lg:items-start">
             <PageHeading backPath={"/auth"} title={"Forgot Password"} disbaledBackBtn={true} />
-            <p className="drop-shadow text-hash mt-4 text-center lg:text-start">
-              Enter your email address to get a verification code for resetting
-              your password. Please enter your email address to reset your
-              password.
+            <p className="drop-shadow text-hash mt-4 text-center lg:text-start text-[#3A3A3A]">
+              EPlease enter your email address to reset your password.
             </p>
           </div>
           <Form
@@ -71,19 +69,19 @@ const ForgotPassword = () => {
                 },
               ]}
             >
-              <Input size="large" placeholder="Enter your email" />
+              <Input size="large" placeholder="Email" />
             </Form.Item>
             <div className="w-full flex justify-center pt-5">
-                <Button
-                  // disabled={isLoading}
-                  type="primary"
+              <Button
+                // disabled={isLoading}
+                type="primary"
 
-                  size="large"
-                  htmlType="submit"
-                  className="w-full px-2 bg-playground"
-                >
-                  Get OTP
-                </Button>
+                size="large"
+                htmlType="submit"
+                className="w-full px-2 bg-[#345C8C]"
+              >
+                Send OTP
+              </Button>
             </div>
           </Form>
         </div>

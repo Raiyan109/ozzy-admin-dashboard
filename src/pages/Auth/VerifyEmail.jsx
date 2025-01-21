@@ -1,7 +1,7 @@
 import { Button, Checkbox, Input } from "antd";
 import Form from "antd/es/form/Form";
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import image from "../../assets/images/verify.png";
 import PageHeading from "../../Components/PageHeading";
 import OTPInput from "react-otp-input";
@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 
 const VerifyEmail = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.email;
   const { id } = useParams();
   const [otp, setOtp] = useState("");
   // const [mutation, { isLoading }] = useVerifyEmailMutation();
@@ -63,7 +65,7 @@ const VerifyEmail = () => {
               disbaledBackBtn={true}
             />
             <p className=" drop-shadow text-hash mt-5 text-center lg:text-left">
-              Please check your email. We have sent a code to contact @gmail.com
+              Please check your email. We have sent a code to {email}
             </p>
           </div>
           <Form
@@ -74,20 +76,20 @@ const VerifyEmail = () => {
             }}
             onFinish={onFinish}
           >
-            <div className="py-3 text-2xl font-semibold flex justify-center">
+            <div className="py-3 text-2xl font-semibold flex justify-center lg:justify-start">
               <OTPInput
                 value={otp}
                 onChange={setOtp}
-                numInputs={4}
+                numInputs={6}
                 inputStyle={{
                   height: "70px",
-                  width: "70px",
+                  width: "60px",
                   margin: "20px",
                   // background: "#ECE8F1",
-                  border: "1px solid #61D0FF",
+                  border: "1px solid #345C8C",
                   // marginRight: "auto",
                   outline: "none",
-                  borderRadius: "16px",
+                  borderRadius: "12px",
                   color: "black",
                 }}
                 renderSeparator={<span> </span>}
@@ -95,15 +97,15 @@ const VerifyEmail = () => {
               />
             </div>
             <div className="w-full flex justify-center pt-5">
-                <Button
-                  // disabled={isLoading}
-                  type="primary"
-                  size="large"
-                  htmlType="submit"
-                  className="w-full px-2 "
-                >
-                  Verify Email
-                </Button>
+              <Button
+                // disabled={isLoading}
+                type="primary"
+                size="large"
+                htmlType="submit"
+                className="w-full px-2 bg-[#345C8C]"
+              >
+                Verify Email
+              </Button>
             </div>
           </Form>
         </div>
