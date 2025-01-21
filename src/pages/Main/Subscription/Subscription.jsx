@@ -2,6 +2,7 @@ import { useState } from "react"
 import tickImg from '../../../assets/images/membership-tick.png'
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import AddNewButton from "../../../Components/AddNewButton";
 
 const plans = [
     { id: 1, name: 'Workout Membership', price: 0, features: ['View Members Directory', 'View Members Profile', 'Send Private Messages', 'Add Media To Your Profile'] },
@@ -52,6 +53,7 @@ const Subscription = () => {
             <button className="px-6 py-2 min-w-[100px] text-center text-white bg-[#345C8C] border border-[#345C8C] rounded-md active:text-[#345C8C] hover:bg-transparent hover:text-[#345C8C] focus:outline-none focus:ring float-end flex items-center gap-2" onClick={() => navigate("/add-subscription")}>
                 <FaPlus />
                 Add new subscription</button>
+            {/* <AddNewButton text={'Add new subscription'} path={'/add-subscription'} /> */}
             <div className="py-20">
 
                 <div className='flex items-center justify-center gap-12'>
