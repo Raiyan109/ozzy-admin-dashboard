@@ -120,9 +120,10 @@
 
 /* React Quill */
 /* Parent Container */
-.ql-toolbar-container {
+.ql-toolbar-container .quill.custom-quill-editor {
   /* display: flex;
   flex-direction: column; */
+  height: 100%;
 }
 
 /* Quill Toolbar Styling */
